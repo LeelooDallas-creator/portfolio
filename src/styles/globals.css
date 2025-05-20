@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg, 
+    #ffffff 0%,     /* Blanc */
+    #f7c6d5 50%,    /* Rose clair */
+    #8b5cf6 100%    /* Violet vif */
+  );
+  font-family: 'Poppins', sans-serif;
+  color: #5a2e99;
+}
+
+a {
+  color: #C18FFF;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #DDB7FF;
+  text-decoration: underline;
+}
+
+header, footer {
+  background: #FFFFFF;
+  padding: 2rem 3rem;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(193, 143, 255, 0.15);
+  color: #4A3F55;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a {
+  margin-right: 2rem;
+  font-size: 1.1rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem 3rem;
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(193, 143, 255, 0.1);
+}
+
+.project-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(193, 143, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(193, 143, 255, 0.3);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-weight: 600;
+  color: #C18FFF;
+}
+
+form div {
+  margin-bottom: 1.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #DDB7FF;
+  border-radius: 24px;
+  background-color: #F8F0F8;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #4A3F55;
+  box-shadow: inset 2px 2px 6px #FFFFFFAA, inset -2px -2px 6px #DDB7FF88;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #C18FFF;
+  outline: none;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 12px #C18FFFAA;
+}
+
+button {
+  background-color: #C18FFF;
+  color: white;
+  padding: 1rem 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(193, 143, 255, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #DDB7FF;
+  box-shadow: 0 10px 26px rgba(221, 183, 255, 0.7);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #4A3F55;
+}
+
+.card {
+  background: #f5e6ff; /* violet pastel très clair */
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 6px 15px rgba(193, 143, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #6b3d99;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(193, 143, 255, 0.5);
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #a363ff;
+}
+
+.card-content {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #5a2e99;
+}
+
+ul.custom-bullet {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+ul.custom-bullet li {
+  position: relative;
+  margin-bottom: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #5a2e99;
+}
+
+ul.custom-bullet li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  background-image: url('/icons/fleur-de-cerisier.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
