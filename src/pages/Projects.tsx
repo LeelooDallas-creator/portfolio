@@ -13,7 +13,7 @@ const projects: Project[] = [
     link: 'https://aillometre.netlify.app/',
   },
   {
-    title: 'Application Todo',
+    title: 'Application Mega to do ',
     description: "Ma To-Do List Girly est une application web simple, intuitive et esthétique développée avec React et TypeScript.",
     link: 'https://megapinkytodo.netlify.app/',
   },
@@ -21,6 +21,11 @@ const projects: Project[] = [
     title: 'Portfolio personnel',
     description: 'Ce site même ! Conçu pour refléter mon univers graphique avec React et amour.',
     link: 'https://example.com',
+  },
+  {
+    title: 'Application to do ',
+    description: "Ma première to do list, simple et efficace.",
+    link: 'https://tinylist.netlify.app/',
   },
   {
     title: "Ameteo",
