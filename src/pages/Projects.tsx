@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 type Project = {
   title: string;
@@ -10,7 +10,7 @@ const projects: Project[] = [
   {
     title: 'Portfolio personnel',
     description: 'Ce site même ! Conçu pour refléter mon univers graphique avec React et amour.',
-    link: 'https://example.com',
+    link: '',
   },
   {
     title: 'Application to do ',
@@ -19,88 +19,151 @@ const projects: Project[] = [
   },
   {
     title: "L'aillomètre d'Antrain",
-    description: "Il y a dans la vallée du Couesnon une petite ville qui sent presque toujours l'ail. J'ai donc créé un petit site pour que les habitants ou les voyageurs de passage puissent connaître le taux d'ail dans l'air.",
+    description: "Un site pour connaître le taux d’ail dans l’air à Antrain, vallée du Couesnon.",
     link: 'https://aillometre.netlify.app/',
   },
   {
     title: "Horizon Slavia",
-    description: "Horizon Slavia est une agence de voyage fictive crée par Lena Berthelin-Sannier, étudiante en tourisme au Canada. Pour ses études, Elle a inventé une agence de voyages hauts de gammes, permettant de découvrir le monde à travers un prisme mystérieux et envoutant.",
-    link: 'https://aillometre.netlify.app/',
+    description: "Une agence fictive de voyages mystérieux imaginée par Lena Berthelin-Sannier.",
+    link: '',
   },
-   {
+  {
     title: "Ameteo",
-    description: "Ame (雨, pluie en japonais) est un petit lapin adorable qui t’accompagne chaque jour pour te présenter la météo avec douceur, charme et style. Dans cette application girly, la météo prend vie à travers Ame, qui change de tenue et d'expression selon le temps qu'il fait dehors",
-    link: 'https://aillometre.netlify.app/',
+    description: "Une app météo kawaii avec un petit lapin qui adapte sa tenue au temps.",
+    link: '',
   },
   {
     title: 'Application Mega to do ',
-    description: "Ma To-Do List Girly est une application web simple, intuitive et esthétique développée avec React et TypeScript.",
+    description: "Une To-Do List girly développée avec React et TypeScript.",
     link: 'https://megapinkytodo.netlify.app/',
   },
 ];
 
 const Projects: React.FC = () => {
-  return (
-    <main style={{ maxWidth: '1000px', margin: '3rem auto', padding: '0 1rem' }}>
-      <h1 style={{
-        fontFamily: 'var(--font-title)',
-        fontSize: '2.5rem',
-        textAlign: 'center',
-        color: 'var(--text-main)',
-        marginBottom: '3rem'
-      }}>
-        Mes projets
-      </h1>
+  const [animate, setAnimate] = useState(false);
 
-      <section style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        gap: '2rem',
-      }}>
-        {projects.map((proj, idx) => (
-          <div key={idx} style={{
-            background: 'var(--rose)',
-            borderRadius: '1rem',
-            padding: '2rem',
-            boxShadow: '0 8px 16px rgba(0,0,0,0.05)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-          }}>
-            <div>
-              <h2 style={{
-                fontSize: '1.5rem',
-                marginBottom: '1rem',
-                fontFamily: 'var(--font-title)',
-                color: 'var(--violet)',
-              }}>
-                {proj.title}
-              </h2>
-              <p style={{ color: '#5a2e99', fontSize: '1rem', lineHeight: 1.6 }}>
-                {proj.description}
-              </p>
-            </div>
-            <a
-              href={proj.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                marginTop: '1.5rem',
-                alignSelf: 'flex-start',
-                backgroundColor: 'var(--violet)',
-                color: '#fff',
-                padding: '0.6rem 1.2rem',
-                borderRadius: '0.5rem',
-                textDecoration: 'none',
-                fontWeight: 600,
-              }}
-            >
-              Voir le projet →
-            </a>
-          </div>
-        ))}
-      </section>
-    </main>
+  useEffect(() => {
+    // Lance l'animation après montage du composant
+    const timeout = setTimeout(() => {
+      setAnimate(true);
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <>
+      {/* CSS animation */}
+      <style>{`
+        .card {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .card.animate {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+      `}</style>
+
+      <main style={{ maxWidth: '1000px', margin: '3rem auto', padding: '0 1rem' }}>
+        <h1
+          style={{
+            fontFamily: 'var(--font-title)',
+            fontSize: '2.5rem',
+            textAlign: 'center',
+            color: 'var(--text-main)',
+            marginBottom: '3rem',
+          }}
+        >
+          Mes projets
+        </h1>
+
+        <section
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
+          }}
+        >
+          {projects.map((proj, idx) => {
+            const isDisabled = !proj.link;
+
+            return (
+              <div
+                key={idx}
+                className={`card ${animate ? 'animate' : ''}`}
+                style={{
+                  background: 'var(--rose)',
+                  borderRadius: '1rem',
+                  padding: '2rem',
+                  boxShadow: '0 8px 16px rgba(0,0,0,0.05)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  transitionDelay: animate ? `${idx * 100}ms` : undefined,
+                }}
+              >
+                <div>
+                  <h2
+                    style={{
+                      fontSize: '1.5rem',
+                      marginBottom: '1rem',
+                      fontFamily: 'var(--font-title)',
+                      color: 'var(--violet)',
+                    }}
+                  >
+                    {proj.title}
+                  </h2>
+                  <p style={{ color: '#5a2e99', fontSize: '1rem', lineHeight: 1.6 }}>
+                    {proj.description}
+                  </p>
+                </div>
+
+                {isDisabled ? (
+                  <span
+                    style={{
+                      marginTop: '1.5rem',
+                      alignSelf: 'flex-start',
+                      backgroundColor: '#ccc',
+                      color: '#666',
+                      padding: '0.6rem 1.2rem',
+                      borderRadius: '0.5rem',
+                      fontWeight: 600,
+                      cursor: 'not-allowed',
+                    }}
+                  >
+                    Lien désactivé
+                  </span>
+                ) : (
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      marginTop: '1.5rem',
+                      alignSelf: 'flex-start',
+                      backgroundColor: 'var(--violet)',
+                      color: '#fff',
+                      padding: '0.6rem 1.2rem',
+                      borderRadius: '0.5rem',
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Voir le projet →
+                  </a>
+                )}
+              </div>
+            );
+          })}
+        </section>
+      </main>
+    </>
   );
 };
 
