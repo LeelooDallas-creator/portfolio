@@ -8,16 +8,6 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "L'aillomètre d'Antrain",
-    description: "Il y a dans la vallée du Couesnon une petite ville qui sent presque toujours l'ail. J'ai donc créé un petit site pour que les habitants ou les voyageurs de passage puissent connaître le taux d'ail dans l'air.",
-    link: 'https://aillometre.netlify.app/',
-  },
-  {
-    title: 'Application Mega to do ',
-    description: "Ma To-Do List Girly est une application web simple, intuitive et esthétique développée avec React et TypeScript.",
-    link: 'https://megapinkytodo.netlify.app/',
-  },
-  {
     title: 'Portfolio personnel',
     description: 'Ce site même ! Conçu pour refléter mon univers graphique avec React et amour.',
     link: 'https://example.com',
@@ -28,9 +18,24 @@ const projects: Project[] = [
     link: 'https://tinylist.netlify.app/',
   },
   {
+    title: "L'aillomètre d'Antrain",
+    description: "Il y a dans la vallée du Couesnon une petite ville qui sent presque toujours l'ail. J'ai donc créé un petit site pour que les habitants ou les voyageurs de passage puissent connaître le taux d'ail dans l'air.",
+    link: 'https://aillometre.netlify.app/',
+  },
+  {
+    title: "Horizon Slavia",
+    description: "Horizon Slavia est une agence de voyage fictive crée par Lena Berthelin-Sannier, étudiante en tourisme au Canada. Pour ses études, Elle a inventé une agence de voyages hauts de gammes, permettant de découvrir le monde à travers un prisme mystérieux et envoutant.",
+    link: 'https://aillometre.netlify.app/',
+  },
+   {
     title: "Ameteo",
     description: "Ame (雨, pluie en japonais) est un petit lapin adorable qui t’accompagne chaque jour pour te présenter la météo avec douceur, charme et style. Dans cette application girly, la météo prend vie à travers Ame, qui change de tenue et d'expression selon le temps qu'il fait dehors",
     link: 'https://aillometre.netlify.app/',
+  },
+  {
+    title: 'Application Mega to do ',
+    description: "Ma To-Do List Girly est une application web simple, intuitive et esthétique développée avec React et TypeScript.",
+    link: 'https://megapinkytodo.netlify.app/',
   },
 ];
 
