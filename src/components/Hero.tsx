@@ -3,6 +3,7 @@ import Lise from '../assets/IMG_8090.jpg';
 
 const Hero: React.FC = () => {
   const [flipped, setFlipped] = useState(false);
+  const [hoverVoirPlus, setHoverVoirPlus] = useState(false);
 
   return (
     <section
@@ -57,7 +58,7 @@ const Hero: React.FC = () => {
               textAlign: 'left',
             }}
           >
-            Découvrez mes projets, mon parcours et mes passions dans un univers moderne et créatif aux tons roses et violets.
+            Découvrez mes projets, mon parcours et mes passions dans un univers moderne et créatif.
           </p>
         </div>
       </div>
@@ -114,8 +115,11 @@ const Hero: React.FC = () => {
               />
             </div>
 
-            {/* Face arrière */}
-            <div
+            {/* Face arrière avec ancre */}
+            <a
+              href="/cv"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 position: 'absolute',
                 width: '100%',
@@ -125,17 +129,37 @@ const Hero: React.FC = () => {
                 backgroundColor: '#6d4e99',
                 color: 'white',
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                flexDirection: 'column',
                 borderRadius: '1rem',
-                padding: '1rem',
+                padding: '2rem 1rem',
                 textAlign: 'center',
+                textDecoration: 'none',
+                cursor: 'pointer',
+                justifyContent: 'center',
+                gap: '1rem',
+                boxSizing: 'border-box',
               }}
+              onMouseEnter={() => setHoverVoirPlus(true)}
+              onMouseLeave={() => setHoverVoirPlus(false)}
             >
-              <p>
-                Je suis passionnée de développement web, toujours curieuse d’apprendre et de créer des expériences immersives. 👩‍💻
-              </p>
-            </div>
+              <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '0.5rem' }}>
+                <p>Je suis passionnée de développement back-end, et j'ai aussi beaucoup d'attrait pour le fullstack.</p>
+                <p>Ce qui m'intéresse et me porte est l'idée de construire un projet de A à Z.</p>
+                <p>Je suis toujours curieuse d’apprendre et de créer des expériences immersives. 👩‍💻</p>
+              </div>
+
+              <strong
+                style={{
+                  marginTop: 'auto',
+                  display: 'block',
+                  textDecoration: hoverVoirPlus ? 'underline' : 'none',
+                  alignSelf: 'center',
+                  fontSize: '1.1rem',
+                }}
+              >
+                Voir plus
+              </strong>
+            </a>
           </div>
         </div>
       </div>

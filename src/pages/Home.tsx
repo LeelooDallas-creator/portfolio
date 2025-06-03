@@ -16,13 +16,13 @@ const Home: React.FC = () => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: '2rem',
       }}>
-        <Card title="À propos de moi">
-          Passionnée par le développement web, j'aime créer des interfaces élégantes et intuitives avec un style doux, féminin et moderne.
-        </Card>
-        <Card title="Mes projets">
+        <Card title="Mes projets" href='/projects'>
           Consultez mes dernières réalisations web, allant de sites vitrines aux applications complexes.
         </Card>
-        <Card title="Contact">
+        <Card title="À propos de moi" href='/about'>
+          Passionnée par le développement web, j'aime créer des interfaces élégantes et intuitives avec un style doux, féminin et moderne.
+        </Card>
+        <Card title="Contact" href='/contact'>
           Je suis disponible pour des missions freelance, un CDI ou une alternance dans une équipe créative.
         </Card>
       </div>
