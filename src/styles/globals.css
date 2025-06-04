@@ -47,6 +47,17 @@ header nav a {
   font-size: 1.1rem;
 }
 
+.rotating-flower {
+  animation: spin 6s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 .project-card {
   background: #FFFFFF;
   border-radius: 24px;
