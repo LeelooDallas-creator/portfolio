@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
               width: '100%',
             }}
           >
-            Bienvenue sur mon portfolio
+            BREF, je cherche un poste junior
           </h1>
 
           <p

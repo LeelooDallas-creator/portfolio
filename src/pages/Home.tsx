@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Card from '../components/Card';
-import ContactAside from '../components/ContactAside';
+import FlowerBorder from '../components/FlowerBorder';
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +11,7 @@ const Home: React.FC = () => {
       padding: '2rem',
       fontFamily: 'var(--font-body)',
     }}>
+     <FlowerBorder />
       <Hero />
       <div style={{
         display: 'grid',
