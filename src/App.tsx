@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import CV from './pages/CV';
-import Contact from './pages/Contact';
 import './styles/globals.css';
 
 const App: React.FC = () => {
@@ -19,7 +18,6 @@ const App: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/cv" element={<CV />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />

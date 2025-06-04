@@ -9,7 +9,6 @@ const Header: React.FC = () => (
       <Link to="/about">À propos</Link>
       <Link to="/projects">Projets</Link>
       <Link to="/cv">CV</Link>
-      <Link to="/contact">Contact</Link>
     </nav>
   </header>
 );

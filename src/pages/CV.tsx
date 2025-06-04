@@ -273,7 +273,7 @@ const CV: React.FC = () => {
               rel="noopener noreferrer"
               style={{ color: '#7a5ab6' }}
             >
-              linkedin.com/in/lise-barbey
+              Lise Barbey
             </a>
           </p>
           <p>
@@ -284,90 +284,11 @@ const CV: React.FC = () => {
               rel="noopener noreferrer"
               style={{ color: '#7a5ab6' }}
             >
-              github.com/LeelooDallas
+            LeelooDallas
             </a>
           </p>
-          <button
-            onClick={() => setShowModal(true)}
-            style={{ marginTop: '1.5rem', ...buttonStyle, backgroundColor: '#7a5ab6' }}
-          >
-            💬 Me contacter
-          </button>
         </aside>
       </div>
-
-      {showModal && (
-        <div
-          onClick={() => setShowModal(false)}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.4)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000,
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              backgroundColor: 'white',
-              padding: '2rem',
-              borderRadius: '1rem',
-              maxWidth: '500px',
-              width: '90%',
-              boxShadow: '0 6px 20px rgba(0,0,0,0.2)',
-            }}
-          >
-            <h3 style={{ marginBottom: '1rem', color: '#5a2e99' }}>
-              Formulaire de contact
-            </h3>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setShowModal(false);
-                alert('Message simulé !');
-              }}
-            >
-              <label>
-                Nom : <input type="text" required style={inputStyle} />
-              </label>
-              <br />
-              <label>
-                Email : <input type="email" required style={inputStyle} />
-              </label>
-              <br />
-              <label>
-                Message :{' '}
-                <textarea required rows={4} style={{ ...inputStyle, resize: 'vertical' }} />
-              </label>
-              <br />
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginTop: '1rem',
-                }}
-              >
-                <button type="submit" style={{ ...buttonStyle, backgroundColor: '#5a2e99' }}>
-                  Envoyer
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                  style={{ ...buttonStyle, backgroundColor: '#ccc', color: '#333' }}
-                >
-                  Annuler
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </>
   );
 };
