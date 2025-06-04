@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ContactAside from '../components/ContactAside';
+import FlowerBorder from '../components/FlowerBorder';
 
 const CV: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<{ [key: string]: boolean }>({});
@@ -75,12 +76,26 @@ const CV: React.FC = () => {
         'Se confronter à différents types de publics, à diverses problématiques, pouvoir aider sur des aspects techniques (wifi, virus, ENT) ou bureautique (utilisation de certains logiciels), être multilingue (anglais, espagnol, russe, LSF).',
     },
     {
+      year: '2022/2023',
+      role: 'Bénévolat',
+      company: 'Participation au Festival Transversales, Université Rennes 2 (35))',
+      description:
+        'Organisation d’événements, planification des journées, accueil du public et des invités, et travail de groupe.',
+    },
+    {
       year: '2022',
       role: 'Stage',
       company: 'Sodi-Art Editions, Paris (75)',
       tech: '(Adobe, Suite Office)',
       description:
         'Soucis du détail, apprendre vite et bien, travail d’équipe, assumer ses erreurs.',
+    },
+    {
+      year: '2022',
+      role: 'Bénévolat',
+      company: 'Festival L\'Ouest Hurlant',
+      description:
+        'Accueil et orientaiton du public, gestion de foule, gestion de librairie, communication entre les auteurs et les libraires.',
     },
   ];
 
@@ -140,6 +155,7 @@ const CV: React.FC = () => {
           <p style={{ fontSize: '1.1rem', color: 'var(--text-main)' }}>
             Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques...
           </p>
+        <FlowerBorder />
 
           <section id="exp" ref={sectionsRefs.exp} style={sectionStyle('exp')}>
             <h2>Expériences professionnelles</h2>
@@ -177,7 +193,7 @@ const CV: React.FC = () => {
             ref={sectionsRefs.formation}
             style={sectionStyle('formation')}
           >
-            <h2>Formation</h2>
+            <h2>Formations</h2>
             <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
               {formations.map((form, i) => (
                 <li
