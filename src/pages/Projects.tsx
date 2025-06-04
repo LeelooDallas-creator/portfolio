@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ContactAside from '../components/ContactAside';
 
 type Project = {
   title: string;
@@ -69,7 +70,18 @@ const Projects: React.FC = () => {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
       `}</style>
-
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          maxWidth: '1200px',
+          margin: '3rem auto',
+          padding: '0 1rem',
+          gap: '2rem',
+        }}
+      >
       <main style={{ maxWidth: '1000px', margin: '3rem auto', padding: '0 1rem' }}>
         <h1
           style={{
@@ -163,6 +175,8 @@ const Projects: React.FC = () => {
           })}
         </section>
       </main>
+      <ContactAside/>
+      </div>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Lise from '../assets/IMG_8090.jpg';
+import ContactAside from './ContactAside';
 
 const Hero: React.FC = () => {
   const [flipped, setFlipped] = useState(false);
@@ -60,6 +61,7 @@ const Hero: React.FC = () => {
           >
             Découvrez mes projets, mon parcours et mes passions dans un univers moderne et créatif.
           </p>
+          <ContactAside/>
         </div>
       </div>
 

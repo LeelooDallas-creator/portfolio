@@ -1,4 +1,5 @@
 import React from 'react';
+import ContactAside from '../components/ContactAside';
 
 const About: React.FC = () => {
   const paragraphStyle = {
@@ -18,6 +19,18 @@ const About: React.FC = () => {
   };
 
   return (
+    <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          maxWidth: '1200px',
+          margin: '3rem auto',
+          padding: '0 1rem',
+          gap: '2rem',
+        }}
+      >
     <main style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem' }}>
       <section
         style={{
@@ -85,6 +98,8 @@ const About: React.FC = () => {
         </p>
       </section>
     </main>
+    <ContactAside/>
+    </div>
   );
 };
 
