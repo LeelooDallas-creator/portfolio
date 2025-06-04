@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/ChatGPT Image 4 juin 2025, 15_00_13-Photoroom.png';
+import logo from '../../assets/logo.lise_barbey.png';
 
 const FlowerIcon: React.FC = () => (
   <svg

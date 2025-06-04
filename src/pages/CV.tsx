@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ContactAside from '../components/ContactAside';
-import FlowerBorder from '../components/FlowerBorder';
+import ContactAside from '../components/ContactAside/ContactAside';
+import FlowerBorder from '../components/FlowerBorder/FlowerBorder';
 
 const CV: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<{ [key: string]: boolean }>({});

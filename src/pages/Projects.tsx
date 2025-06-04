@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ContactAside from '../components/ContactAside';
+import ContactAside from '../components/ContactAside/ContactAside';
 
 type Project = {
   title: string;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ContactAside from '../components/ContactAside';
+import ContactAside from '../components/ContactAside/ContactAside';
 
 type AccordionSectionProps = {
   title: string;

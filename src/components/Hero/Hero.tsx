@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Lise from '../assets/IMG_8090.jpg';
-import ContactAside from './ContactAside';
+import Lise from '../../assets/IMG_8090.jpg'
+import ContactAside from '../ContactAside/ContactAside';
 
 const Hero: React.FC = () => {
   const [flipped, setFlipped] = useState(false);

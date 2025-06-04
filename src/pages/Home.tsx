@@ -1,7 +1,7 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import Card from '../components/Card';
-import FlowerBorder from '../components/FlowerBorder';
+import Hero from '../components/Hero/Hero';
+import Card from '../components/Card/Card';
+import FlowerBorder from '../components/FlowerBorder/FlowerBorder';
 
 const Home: React.FC = () => {
   return (
