@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Card from '../components/Card';
+import ContactAside from '../components/ContactAside';
 
 const Home: React.FC = () => {
   return (
