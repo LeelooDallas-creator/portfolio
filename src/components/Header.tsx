@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/ChatGPT Image 4 juin 2025, 10_18_50-Photoroom.png';
+import logo from '../assets/ChatGPT Image 4 juin 2025, 15_00_13-Photoroom.png';
 
 const FlowerIcon: React.FC = () => (
   <svg
@@ -13,8 +13,8 @@ const FlowerIcon: React.FC = () => (
   >
     <defs>
       <radialGradient id="petalGradient" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#ff7a8a" />
-        <stop offset="100%" stopColor="#bf2849" />
+        <stop offset="0%" stopColor="#fbd6e3" />       {/* --rose */}
+        <stop offset="100%" stopColor="#c18fff" />      {/* --violet */}
       </radialGradient>
     </defs>
     {[...Array(6)].map((_, i) => (
@@ -28,24 +28,54 @@ const FlowerIcon: React.FC = () => (
         transform={`rotate(${i * 60}, 100, 100)`}
       />
     ))}
-    <circle cx="100" cy="100" r="20" fill="#ffb347" />
+    <circle cx="100" cy="100" r="20" fill="#5a2e99" /> {/* --text-main */}
   </svg>
 );
 
 const Header: React.FC = () => (
-  <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem' }}>
-    <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+  <header
+    className="header"
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '1rem',
+    }}
+  >
+    <Link
+      to="/"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        textDecoration: 'none',
+        color: 'inherit',
+      }}
+    >
       <img
         src={logo}
         alt="Logo Lise Barbey"
         style={{ height: '130px', width: '80px', marginRight: '1rem' }}
       />
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: 1.2, color: '#bf2849' }}>
-        <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Lise</p>
-        <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Barbey</p>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          lineHeight: 1.2,
+          color: '#5a2e99',
+        }}
+      >
+        {/* Lise + Barbey côte à côte */}
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Lise</p>
+          <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Barbey</p>
+        </div>
         <FlowerIcon />
-        <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Leeloo</p>
-        <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Dallas</p>
+        {/* Leeloo + Dallas côte à côte */}
+        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Leeloo</p>
+          <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.2rem' }}>Dallas</p>
+        </div>
       </div>
     </Link>
 
