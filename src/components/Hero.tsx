@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Lise from '../assets/IMG_8090.jpg';
+import Lise from '../assets/Lise_Barbey.jpg';
 import ContactAside from './ContactAside';
 
 const Hero: React.FC = () => {
