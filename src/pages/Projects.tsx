@@ -44,7 +44,6 @@ const Projects: React.FC = () => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    // Lance l'animation après montage du composant
     const timeout = setTimeout(() => {
       setAnimate(true);
     }, 100);
@@ -53,7 +52,7 @@ const Projects: React.FC = () => {
 
   return (
     <>
-      {/* CSS animation */}
+      {/* Animations & responsive layout */}
       <style>{`
         .card {
           opacity: 0;
@@ -69,44 +68,50 @@ const Projects: React.FC = () => {
           box-shadow: 0 12px 24px rgba(0,0,0,0.1);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .projects-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          max-width: 1200px;
+          margin: 3rem auto;
+          padding: 0 1rem;
+          gap: 2rem;
+        }
+        @media (max-width: 960px) {
+          .projects-container {
+            flex-direction: column;
+            align-items: stretch;
+          }
+        }
       `}</style>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          maxWidth: '1200px',
-          margin: '3rem auto',
-          padding: '0 1rem',
-          gap: '2rem',
-        }}
-      >
-      <main style={{ maxWidth: '1000px', margin: '3rem auto', padding: '0 1rem' }}>
-        <h1
-          style={{
-            fontFamily: 'var(--font-title)',
-            fontSize: '2.5rem',
-            textAlign: 'center',
-            color: 'var(--text-main)',
-            marginBottom: '3rem',
-          }}
-        >
-          Mes projets
-        </h1>
 
-        <section
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem',
-          }}
-        >
-          {projects.map((proj, idx) => {
-            const isDisabled = !proj.link;
+      <div className="projects-container">
+        <main style={{ flex: 1 }}>
+          <h1
+            style={{
+              fontFamily: 'var(--font-title)',
+              fontSize: '2.5rem',
+              textAlign: 'center',
+              color: 'var(--text-main)',
+              marginBottom: '3rem',
+            }}
+          >
+            Mes projets
+          </h1>
 
-            return (
-              <article
+          <section
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '2rem',
+            }}
+          >
+            {projects.map((proj, idx) => {
+              const isDisabled = !proj.link;
+
+              return (
+                <article
                   key={idx}
                   data-testid={`project-card-${idx}`}
                   className={`card ${animate ? 'animate' : ''}`}
@@ -121,62 +126,65 @@ const Projects: React.FC = () => {
                     transitionDelay: animate ? `${idx * 100}ms` : undefined,
                   }}
                 >
-                <div>
-                  <h2
-                    style={{
-                      fontSize: '1.5rem',
-                      marginBottom: '1rem',
-                      fontFamily: 'var(--font-title)',
-                      color: 'var(--violet)',
-                    }}
-                  >
-                    {proj.title}
-                  </h2>
-                  <p style={{ color: '#5a2e99', fontSize: '1rem', lineHeight: 1.6 }}>
-                    {proj.description}
-                  </p>
-                </div>
+                  <div>
+                    <h2
+                      style={{
+                        fontSize: '1.5rem',
+                        marginBottom: '1rem',
+                        fontFamily: 'var(--font-title)',
+                        color: 'var(--violet)',
+                      }}
+                    >
+                      {proj.title}
+                    </h2>
+                    <p style={{ color: '#5a2e99', fontSize: '1rem', lineHeight: 1.6 }}>
+                      {proj.description}
+                    </p>
+                  </div>
 
-                {isDisabled ? (
-                  <span
-                    style={{
-                      marginTop: '1.5rem',
-                      alignSelf: 'flex-start',
-                      backgroundColor: '#ccc',
-                      color: '#666',
-                      padding: '0.6rem 1.2rem',
-                      borderRadius: '0.5rem',
-                      fontWeight: 600,
-                      cursor: 'not-allowed',
-                    }}
-                  >
-                    Lien désactivé
-                  </span>
-                ) : (
-                  <a
-                    href={proj.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      marginTop: '1.5rem',
-                      alignSelf: 'flex-start',
-                      backgroundColor: 'var(--violet)',
-                      color: '#fff',
-                      padding: '0.6rem 1.2rem',
-                      borderRadius: '0.5rem',
-                      textDecoration: 'none',
-                      fontWeight: 600,
-                    }}
-                  >
-                    Voir le projet →
-                  </a>
-                )}
-              </article>
-            );
-          })}
-        </section>
-      </main>
-      <ContactAside/>
+                  {isDisabled ? (
+                    <span
+                      style={{
+                        marginTop: '1.5rem',
+                        alignSelf: 'flex-start',
+                        backgroundColor: '#ccc',
+                        color: '#666',
+                        padding: '0.6rem 1.2rem',
+                        borderRadius: '0.5rem',
+                        fontWeight: 600,
+                        cursor: 'not-allowed',
+                      }}
+                    >
+                      Lien désactivé
+                    </span>
+                  ) : (
+                    <a
+                      href={proj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        marginTop: '1.5rem',
+                        alignSelf: 'flex-start',
+                        backgroundColor: 'var(--violet)',
+                        color: '#fff',
+                        padding: '0.6rem 1.2rem',
+                        borderRadius: '0.5rem',
+                        textDecoration: 'none',
+                        fontWeight: 600,
+                      }}
+                    >
+                      Voir le projet →
+                    </a>
+                  )}
+                </article>
+              );
+            })}
+          </section>
+        </main>
+
+        <aside style={{ flexShrink: 0 }}>
+          <ContactAside />
+        </aside>
       </div>
     </>
   );

@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const FlowerBorder = () => {
   const flowerEmoji = '🌸';
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 600);
+    checkScreen();
+    window.addEventListener('resize', checkScreen);
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
+
   const borderStyle: React.CSSProperties = {
     position: 'relative',
-    fontSize: '1.1rem',
+    fontSize: isMobile ? '1rem' : '1.1rem',
     color: 'var(--text-main)',
     textAlign: 'center',
-    padding: '1.5rem 2rem',
-    margin: '2rem',
+    padding: isMobile ? '1rem' : '1.5rem 2rem',
+    margin: isMobile ? '1.5rem' : '2rem',
+  };
+
+  const spanStyle: React.CSSProperties = {
+    position: 'relative',
+    display: 'inline-block',
+    padding: isMobile ? '1.5rem' : '2.5rem',
   };
 
   return (
@@ -17,7 +32,7 @@ const FlowerBorder = () => {
       <style>{`
         .flower-border::before,
         .flower-border::after {
-          content: "${flowerEmoji.repeat(20)}";
+          content: "${flowerEmoji.repeat(isMobile ? 10 : 20)}";
           position: absolute;
           left: 0;
           width: 100%;
@@ -52,9 +67,16 @@ const FlowerBorder = () => {
           bottom: 0;
           writing-mode: vertical-rl;
         }
+
+        @media (max-width: 600px) {
+          .flower-border > span::before,
+          .flower-border > span::after {
+            display: none;
+          }
+        }
       `}</style>
 
-      <span className="flower-border" style={{ position: 'relative', display: 'inline-block', padding: '2.5rem' }}>
+      <span className="flower-border" style={spanStyle}>
         Recherche un poste en back-end ou en fullstack pour janvier 2026
       </span>
     </p>
