@@ -95,28 +95,41 @@ const About: React.FC = () => {
           {/* Accordion Sections */}
           <AccordionSection title="❧ Mon parcours & sensibilité">
             <p style={paragraphStyle}>
-              Je suis développeuse fullstack, avec une préférence marquée pour le back-end...
+             Je suis développeuse fullstack, avec une préférence marquée pour le back-end, où j’aime concevoir desAdd commentMore actions
+              architectures à la fois solides et élégantes. Passionnée depuis toujours par l’architecture et les arts
+              sous toutes leurs formes, j’intègre cette sensibilité à mon travail pour créer des systèmes fonctionnels,
+              esthétiques et bien structurés. La qualité du code et la résolution précise des problématiques techniques
+              sont au cœur de ma démarche.
             </p>
           </AccordionSection>
 
           <AccordionSection title="❧ Compétences & outils">
             <p style={paragraphStyle}>
-              Aujourd’hui, je travaille en fullstack...
+              Aujourd’hui, je travaille en fullstack, ce qui me permet de suivre un projet de A à Z, de la conception àAdd commentMore actions
+              la mise en production. Je maîtrise principalement JavaScript, Astro et React, et je viens de commencer un
+              projet en Node.js. Dans le cadre de ma formation, je découvre également PHP ainsi que les bases de
+              données, renforçant ainsi mes compétences back-end. En parallèle, je continue à me former sur divers
+              sujets techniques, avec pour objectif d’apprendre prochainement le Perl, un langage qui m’intéresse
+              particulièrement.
             </p>
           </AccordionSection>
 
           <AccordionSection title="❧ Accessibilité & inclusion">
             <p style={paragraphStyle}>
-              L’accessibilité est une valeur essentielle pour moi...
+               L’accessibilité est une valeur essentielle pour moi : je m’efforce de concevoir des sites et applicationsAdd commentMore actions
+              inclusifs, pensés pour être accessibles et utilisables par tous, quelles que soient leurs contraintes.
             </p>
           </AccordionSection>
 
           <AccordionSection title="❧ Approche & vision">
             <p style={paragraphStyle}>
-              Comprendre les besoins réels des utilisateurs...
+              Comprendre les besoins réels des utilisateurs pour créer des solutions durables, alliant rigueurAdd commentMore actions
+              technique, esthétique et accessibilité, est au centre de mon travail.Add comment
             </p>
             <p style={paragraphStyle}>
-              Curieuse et toujours en apprentissage...
+              Curieuse et toujours en apprentissage, j’apprécie expérimenter de nouvelles approches et collaborer avecAdd commentMore actions
+              des équipes passionnées. Ce portfolio reflète mes projets, mes réussites, mais aussi les défis qui ont
+              nourri mon expérience et affiné ma vision du développement.
             </p>
           </AccordionSection>
         </section>
