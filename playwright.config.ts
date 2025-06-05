@@ -11,6 +11,7 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 },
     actionTimeout: 10000,
     ignoreHTTPSErrors: true,
+    baseURL: 'http://localhost:5173',
   },
 
   webServer: {
