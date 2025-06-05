@@ -4,6 +4,8 @@ import FlowerBorder from '../components/FlowerBorder';
 
 const CV: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<{ [key: string]: boolean }>({});
+  const [isMobile, setIsMobile] = useState(false);
+
   const sectionsRefs = {
     exp: useRef<HTMLElement>(null),
     formation: useRef<HTMLElement>(null),
@@ -30,7 +32,13 @@ const CV: React.FC = () => {
       if (ref.current) observer.observe(ref.current);
     });
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const sectionStyle = (id: string) => ({
@@ -41,7 +49,7 @@ const CV: React.FC = () => {
   });
 
   const listItemStyle = {
-    padding: '1rem',
+    padding: isMobile ? '0.8rem' : '1rem',
     borderRadius: '0.5rem',
     transition: 'background-color 0.3s ease',
     cursor: 'pointer',
@@ -49,7 +57,6 @@ const CV: React.FC = () => {
     backgroundColor: 'var(--rose-light, #f9eaff)',
   };
 
-  // Typed with SyntheticEvent to handle Mouse and Focus events
   const handleItemHover = (e: React.SyntheticEvent<HTMLLIElement>) => {
     (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(90,46,153,0.15)';
   };
@@ -78,7 +85,7 @@ const CV: React.FC = () => {
     {
       year: '2022/2023',
       role: 'Bénévolat',
-      company: 'Participation au Festival Transversales, Université Rennes 2 (35))',
+      company: 'Participation au Festival Transversales, Université Rennes 2 (35)',
       description:
         'Organisation d’événements, planification des journées, accueil du public et des invités, et travail de groupe.',
     },
@@ -93,9 +100,9 @@ const CV: React.FC = () => {
     {
       year: '2022',
       role: 'Bénévolat',
-      company: 'Festival L\'Ouest Hurlant',
+      company: "Festival L'Ouest Hurlant",
       description:
-        'Accueil et orientaiton du public, gestion de foule, gestion de librairie, communication entre les auteurs et les libraires.',
+        'Accueil et orientation du public, gestion de foule, gestion de librairie, communication entre les auteurs et les libraires.',
     },
   ];
 
@@ -128,102 +135,102 @@ const CV: React.FC = () => {
   ];
 
   return (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          maxWidth: '1200px',
-          margin: '3rem auto',
-          padding: '0 1rem',
-          gap: '2rem',
-        }}
-      >
-        <main style={{ flex: 1 }}>
-          <h1
-            style={{
-              fontFamily: 'var(--font-title)',
-              color: 'var(--violet)',
-              fontSize: '2.5rem',
-              userSelect: 'none',
-            }}
-          >
-            Lise BARBEY – Développeuse Fullstack
-          </h1>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-main)' }}>
-            Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques...
-          </p>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        maxWidth: '1200px',
+        margin: '3rem auto',
+        padding: '0 1rem',
+        gap: '2rem',
+      }}
+    >
+      <main style={{ flex: 1 }}>
+        <h1
+          style={{
+            fontFamily: 'var(--font-title)',
+            color: 'var(--violet)',
+            fontSize: isMobile ? '2rem' : '2.5rem',
+            userSelect: 'none',
+          }}
+        >
+          Lise BARBEY – Développeuse Fullstack
+        </h1>
+        <p style={{ fontSize: isMobile ? '1rem' : '1.1rem', color: 'var(--text-main)' }}>
+          Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques...
+        </p>
 
-          <FlowerBorder />
+        <FlowerBorder />
 
-          <section id="exp" ref={sectionsRefs.exp} style={sectionStyle('exp')}>
-            <h2>Expériences professionnelles</h2>
-            <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-              {experiences.map((exp, i) => (
-                <li
-                  key={i}
-                  style={listItemStyle}
-                  onMouseEnter={handleItemHover}
-                  onMouseLeave={handleItemLeave}
-                  tabIndex={0}
-                  onFocus={handleItemHover}
-                  onBlur={handleItemLeave}
+        <section id="exp" ref={sectionsRefs.exp} style={sectionStyle('exp')}>
+          <h2>Expériences professionnelles</h2>
+          <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+            {experiences.map((exp, i) => (
+              <li
+                key={i}
+                style={listItemStyle}
+                onMouseEnter={handleItemHover}
+                onMouseLeave={handleItemLeave}
+                tabIndex={0}
+                onFocus={handleItemHover}
+                onBlur={handleItemLeave}
+              >
+                <div>
+                  🌸 <strong>{exp.year}</strong> – {exp.role}, {exp.company}{' '}
+                  <em style={{ color: '#7a5ab6' }}>{exp.tech}</em>
+                </div>
+                <p
+                  style={{
+                    marginTop: '0.4rem',
+                    color: 'var(--text-main)',
+                    fontSize: isMobile ? '0.9rem' : '0.95rem',
+                  }}
                 >
-                  <div>
-                    🌸 <strong>{exp.year}</strong> – {exp.role}, {exp.company}{' '}
-                    <em style={{ color: '#7a5ab6' }}>{exp.tech}</em>
-                  </div>
-                  <p
-                    style={{
-                      marginTop: '0.4rem',
-                      color: 'var(--text-main)',
-                      fontSize: '0.95rem',
-                    }}
-                  >
-                    {exp.description}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
+                  {exp.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-          <section
-            id="formation"
-            ref={sectionsRefs.formation}
-            style={sectionStyle('formation')}
-          >
-            <h2>Formations</h2>
-            <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-              {formations.map((form, i) => (
-                <li
-                  key={i}
-                  style={listItemStyle}
-                  onMouseEnter={handleItemHover}
-                  onMouseLeave={handleItemLeave}
-                  tabIndex={0}
+        <section id="formation" ref={sectionsRefs.formation} style={sectionStyle('formation')}>
+          <h2>Formations</h2>
+          <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+            {formations.map((form, i) => (
+              <li
+                key={i}
+                style={listItemStyle}
+                onMouseEnter={handleItemHover}
+                onMouseLeave={handleItemLeave}
+                tabIndex={0}
+              >
+                <div>
+                  🌸 <strong>{form.year}</strong> – {form.title}
+                </div>
+                <p
+                  style={{
+                    marginTop: '0.4rem',
+                    color: 'var(--text-main)',
+                    fontSize: isMobile ? '0.9rem' : '0.95rem',
+                  }}
                 >
-                  <div>
-                    🌸 <strong>{form.year}</strong> – {form.title}
-                  </div>
-                  <p
-                    style={{
-                      marginTop: '0.4rem',
-                      color: 'var(--text-main)',
-                      fontSize: '0.95rem',
-                    }}
-                  >
-                    {form.school}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        </main>
-        <ContactAside />
-      </div>
-    </>
+                  {form.school}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
+
+      {!isMobile && <ContactAside />}
+      {isMobile && (
+        <div style={{ marginTop: '2rem' }}>
+          <ContactAside />
+        </div>
+      )}
+    </div>
   );
 };
 
