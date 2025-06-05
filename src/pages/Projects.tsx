@@ -11,7 +11,7 @@ const projects: Project[] = [
   {
     title: 'Portfolio personnel',
     description: 'Ce site même ! Conçu pour refléter mon univers graphique avec React et amour.',
-    link: '',
+    link: 'https://portfolio-leeloo-dallas.netlify.app',
   },
   {
     title: 'Application to do ',
