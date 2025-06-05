@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import Lise from '../assets/Lise_Barbey.jpg';
 import ContactAside from './ContactAside';
 
@@ -125,10 +126,9 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Face arrière */}
-            <a
-              href="/cv"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Face arrière */}
+            <Link
+              to="/cv"
               style={{
                 position: 'absolute',
                 width: '100%',
@@ -150,6 +150,7 @@ const Hero: React.FC = () => {
               }}
               onMouseEnter={() => setHoverVoirPlus(true)}
               onMouseLeave={() => setHoverVoirPlus(false)}
+              onClick={(e) => e.stopPropagation()} // Empêche le clic de retourner la carte si tu as un flip au clic
             >
               <div
                 style={{
@@ -176,7 +177,7 @@ const Hero: React.FC = () => {
               >
                 Voir plus
               </strong>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
