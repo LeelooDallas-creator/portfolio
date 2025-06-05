@@ -4,7 +4,6 @@ import FlowerBorder from '../components/FlowerBorder';
 
 const CV: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<{ [key: string]: boolean }>({});
-  const [showModal, setShowModal] = useState(false);
   const sectionsRefs = {
     exp: useRef<HTMLElement>(null),
     formation: useRef<HTMLElement>(null),
@@ -31,7 +30,7 @@ const CV: React.FC = () => {
       if (ref.current) observer.observe(ref.current);
     });
 
-    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sectionStyle = (id: string) => ({
@@ -50,11 +49,12 @@ const CV: React.FC = () => {
     backgroundColor: 'var(--rose-light, #f9eaff)',
   };
 
-  const handleItemHover = (e: React.MouseEvent<HTMLLIElement>) => {
+  // Typed with SyntheticEvent to handle Mouse and Focus events
+  const handleItemHover = (e: React.SyntheticEvent<HTMLLIElement>) => {
     (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(90,46,153,0.15)';
   };
 
-  const handleItemLeave = (e: React.MouseEvent<HTMLLIElement>) => {
+  const handleItemLeave = (e: React.SyntheticEvent<HTMLLIElement>) => {
     (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--rose-light, #f9eaff)';
   };
 
@@ -155,7 +155,8 @@ const CV: React.FC = () => {
           <p style={{ fontSize: '1.1rem', color: 'var(--text-main)' }}>
             Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques...
           </p>
-        <FlowerBorder />
+
+          <FlowerBorder />
 
           <section id="exp" ref={sectionsRefs.exp} style={sectionStyle('exp')}>
             <h2>Expériences professionnelles</h2>
@@ -202,8 +203,6 @@ const CV: React.FC = () => {
                   onMouseEnter={handleItemHover}
                   onMouseLeave={handleItemLeave}
                   tabIndex={0}
-                  onFocus={handleItemHover}
-                  onBlur={handleItemLeave}
                 >
                   <div>
                     🌸 <strong>{form.year}</strong> – {form.title}

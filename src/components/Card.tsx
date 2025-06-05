@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-interface CardProps {
+export interface CardProps {
   title: string;
   children: React.ReactNode;
-  href: string;  // <-- ajouter une prop href
+  href: string;
 }
 
 const Card: React.FC<CardProps> = ({ title, children, href }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <a
-      href={href}
-      style={{ textDecoration: 'none' }}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link to={href} style={{ textDecoration: 'none', color: 'inherit' }}>
       <div
+      data-testid="card-mock"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
@@ -54,7 +51,7 @@ const Card: React.FC<CardProps> = ({ title, children, href }) => {
           {children}
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
