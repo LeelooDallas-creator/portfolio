@@ -25,20 +25,21 @@ test.describe('Page Projets', () => {
   });
 
   test('les liens actifs ont un lien cliquable et les désactivés affichent "Lien désactivé"', async ({ page }) => {
-    const cards = page.locator('.card');
+  const cards = page.locator('.card');
 
-    // Carte avec lien actif
-    const cardWithLink = cards.nth(1);
-    const link = cardWithLink.locator('a');
-    await expect(link).toBeVisible();
-    await expect(link).toHaveText('Voir le projet →');
-    await expect(link).toHaveAttribute('href', 'https://tinylist.netlify.app/');
+  // Carte avec lien actif (index 0 par ex)
+  const cardWithLink = cards.nth(0);
+  const link = cardWithLink.locator('a');
+  await expect(link).toBeVisible();
+  await expect(link).toHaveText('Voir le projet →');
+  await expect(link).toHaveAttribute('href', 'https://portfolio-leeloo-dallas.netlify.app');
 
-    // Carte avec lien désactivé
-    const cardDisabled = cards.nth(0);
-    const disabledSpan = cardDisabled.locator('span');
-    await expect(disabledSpan).toHaveText('Lien désactivé');
-  });
+  // Carte avec lien désactivé (index 3 par ex)
+  const cardDisabled = cards.nth(3);
+  const disabledSpan = cardDisabled.locator('span');
+  await expect(disabledSpan).toHaveText('Lien désactivé');
+});
+
 
   test('cliquer sur un lien actif ouvre la bonne URL dans un nouvel onglet', async ({ page, context }) => {
     const cards = page.locator('.card');

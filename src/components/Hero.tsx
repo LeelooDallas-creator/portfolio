@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom'; 
 import Lise from '../assets/Lise_Barbey.jpg';
 import ContactAside from './ContactAside';
 
