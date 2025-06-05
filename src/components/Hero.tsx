@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom'; 
 import Lise from '../assets/Lise_Barbey.jpg';
 import ContactAside from './ContactAside';
 
@@ -112,6 +112,11 @@ const Hero: React.FC = () => {
                 backfaceVisibility: 'hidden',
                 borderRadius: '1rem',
                 overflow: 'hidden',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end', // place le texte en bas
+                padding: '1rem',
+                boxSizing: 'border-box',
               }}
             >
               <img
@@ -121,11 +126,36 @@ const Hero: React.FC = () => {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
+                  borderRadius: '1rem',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  zIndex: 0,
                 }}
               />
+              <div
+                role="note" // indique que c’est une note informative
+                aria-label="Slogan sur l’image : La vérité est ailleurs flèche"
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  color: '#F0EFFF', // Couleur claire, bon contraste avec violet foncé
+                  fontWeight: '600',
+                  fontSize: '1.2rem',
+                  textShadow: '0 0 8px rgba(0, 0, 0, 0.7)', // ombre renforcée pour lisibilité
+                  backgroundColor: 'rgba(109, 78, 153, 0.85)', // fond violet plus opaque pour contraste élevé
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  userSelect: 'none',
+                  maxWidth: '90%',
+                  textAlign: 'center',
+                }}
+              >
+                La vérité est ailleurs →
+              </div>
+
             </div>
 
-            {/* Face arrière */}
             {/* Face arrière */}
             <Link
               to="/cv"

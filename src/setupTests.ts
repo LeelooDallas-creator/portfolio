@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 
+// Mock IntersectionObserver
 class IntersectionObserverMock implements IntersectionObserver {
   root: Element | null = null;
   rootMargin: string = '';
@@ -26,3 +27,16 @@ class IntersectionObserverMock implements IntersectionObserver {
 }
 global.IntersectionObserver = IntersectionObserverMock;
 window.IntersectionObserver = IntersectionObserverMock;
+
+// Mock ResizeObserver
+class ResizeObserverMock {
+  observe(_target: Element) {
+    void _target;
+  }
+  unobserve(_target: Element) {
+    void _target;
+  }
+  disconnect() {}
+}
+global.ResizeObserver = ResizeObserverMock;
+window.ResizeObserver = ResizeObserverMock;

@@ -18,7 +18,7 @@ vi.mock('../components/Card', () => (props: CardProps) => (
 describe('Home', () => {
   test('rend correctement le composant et ses enfants mockés', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter initialEntries={['/']}>
         <Home />
       </MemoryRouter>
     );
