@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const [hoverVoirPlus, setHoverVoirPlus] = useState(false);
 
   return (
-    <section
+    <section data-testid="hero"
       style={{
         display: 'flex',
         gap: '20px',

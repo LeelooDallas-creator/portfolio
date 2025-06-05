@@ -13,7 +13,7 @@ const FlowerBorder = () => {
   };
 
   return (
-    <p style={borderStyle}>
+    <p data-testid="flower-border" style={borderStyle}>
       <style>{`
         .flower-border::before,
         .flower-border::after {

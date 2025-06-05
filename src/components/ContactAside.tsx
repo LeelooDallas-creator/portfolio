@@ -3,6 +3,7 @@ import React from 'react';
 const ContactAside: React.FC = () => {
   return (
     <aside
+      data-testid="contact-aside"
       style={{
         flexShrink: 0,
         width: '300px',

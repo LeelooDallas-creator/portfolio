@@ -106,20 +106,21 @@ const Projects: React.FC = () => {
             const isDisabled = !proj.link;
 
             return (
-              <div
-                key={idx}
-                className={`card ${animate ? 'animate' : ''}`}
-                style={{
-                  background: 'var(--rose)',
-                  borderRadius: '1rem',
-                  padding: '2rem',
-                  boxShadow: '0 8px 16px rgba(0,0,0,0.05)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transitionDelay: animate ? `${idx * 100}ms` : undefined,
-                }}
-              >
+              <article
+                  key={idx}
+                  data-testid={`project-card-${idx}`}
+                  className={`card ${animate ? 'animate' : ''}`}
+                  style={{
+                    background: 'var(--rose)',
+                    borderRadius: '1rem',
+                    padding: '2rem',
+                    boxShadow: '0 8px 16px rgba(0,0,0,0.05)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transitionDelay: animate ? `${idx * 100}ms` : undefined,
+                  }}
+                >
                 <div>
                   <h2
                     style={{
@@ -170,7 +171,7 @@ const Projects: React.FC = () => {
                     Voir le projet →
                   </a>
                 )}
-              </div>
+              </article>
             );
           })}
         </section>

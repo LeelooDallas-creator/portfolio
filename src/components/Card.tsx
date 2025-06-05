@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-interface CardProps {
+export interface CardProps {
   title: string;
   children: React.ReactNode;
   href: string;
@@ -13,6 +13,7 @@ const Card: React.FC<CardProps> = ({ title, children, href }) => {
   return (
     <Link to={href} style={{ textDecoration: 'none', color: 'inherit' }}>
       <div
+      data-testid="card-mock"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
