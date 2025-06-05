@@ -1,24 +1,15 @@
-const FlowerBorder = () => {
-  const flowerEmoji = '🌸'; // tu peux changer par 🌺, 🌼, 🌻, etc.
+import React from 'react';
 
-  const borderStyle = {
+const FlowerBorder = () => {
+  const flowerEmoji = '🌸';
+
+  const borderStyle: React.CSSProperties = {
     position: 'relative',
     fontSize: '1.1rem',
     color: 'var(--text-main)',
     textAlign: 'center',
     padding: '1.5rem 2rem',
     margin: '2rem',
-  };
-
-  const beforeAfterStyle = {
-    content: `"${flowerEmoji.repeat(20)}"`, // répète la fleur 20 fois
-    position: 'absolute',
-    width: '100%',
-    left: 0,
-    fontSize: '1.2rem',
-    letterSpacing: '0.3rem',
-    color: 'var(--violet)',
-    userSelect: 'none',
   };
 
   return (
