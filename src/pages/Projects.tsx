@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ContactAside from '../components/ContactAside';
 
 type Project = {
@@ -113,6 +113,7 @@ const Projects: React.FC = () => {
               return (
                 <article
                   key={idx}
+                  role="listitem"
                   data-testid={`project-card-${idx}`}
                   className={`card ${animate ? 'animate' : ''}`}
                   style={{
@@ -125,6 +126,7 @@ const Projects: React.FC = () => {
                     justifyContent: 'space-between',
                     transitionDelay: animate ? `${idx * 100}ms` : undefined,
                   }}
+                  tabIndex={0}
                 >
                   <div>
                     <h2
@@ -144,6 +146,7 @@ const Projects: React.FC = () => {
 
                   {isDisabled ? (
                     <span
+                      aria-disabled="true"
                       style={{
                         marginTop: '1.5rem',
                         alignSelf: 'flex-start',

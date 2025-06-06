@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import Lise from '../assets/Lise_Barbey.jpg';
 import ContactAside from './ContactAside';
@@ -18,6 +18,8 @@ const Hero: React.FC = () => {
   return (
     <section
       data-testid="hero"
+      aria-labelledby="hero-title"
+      role="region"
       style={{
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
@@ -102,6 +104,8 @@ const Hero: React.FC = () => {
             }}
             onMouseEnter={() => setFlipped(true)}
             onMouseLeave={() => setFlipped(false)}
+            aria-live="polite"
+
           >
             {/* Face avant */}
             <div
@@ -159,6 +163,7 @@ const Hero: React.FC = () => {
             {/* Face arrière */}
             <Link
               to="/cv"
+              aria-label="Vers le CV de Lise Barbey"
               style={{
                 position: 'absolute',
                 width: '100%',

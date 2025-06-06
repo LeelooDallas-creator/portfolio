@@ -56,6 +56,8 @@ const FlowerBorder = () => {
         boxSizing: "border-box",
       }}
       data-testid="flower-border"
+      role="region"
+      aria-label="Annonce de recherche d'emploi"
     >
       <style>{`
         .flower-line {

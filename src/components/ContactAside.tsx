@@ -1,9 +1,8 @@
-import React from 'react';
-
 const ContactAside: React.FC = () => {
   return (
     <aside
       data-testid="contact-aside"
+      aria-labelledby="contact-aside-title"
       style={{
         flexShrink: 0,
         width: '300px',
@@ -18,6 +17,7 @@ const ContactAside: React.FC = () => {
       }}
     >
       <h2
+        id="contact-aside-title"
         style={{
           fontFamily: 'Playfair Display, serif',
           fontSize: '1.8rem',

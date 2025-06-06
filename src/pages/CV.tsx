@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ContactAside from '../components/ContactAside';
 import FlowerBorder from '../components/FlowerBorder';
 
@@ -155,17 +155,26 @@ const CV: React.FC = () => {
             fontSize: isMobile ? '2rem' : '2.5rem',
             userSelect: 'none',
           }}
+          id="cv-title"
         >
           Lise BARBEY – Développeuse Fullstack
         </h1>
-        <p style={{ fontSize: isMobile ? '1rem' : '1.1rem', color: 'var(--text-main)' }}>
-          Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques...
+        <p
+          style={{ fontSize: isMobile ? '1rem' : '1.1rem', color: 'var(--text-main)' }}
+          aria-describedby="cv-title"
+        >
+          Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques.
         </p>
 
         <FlowerBorder />
 
-        <section id="exp" ref={sectionsRefs.exp} style={sectionStyle('exp')}>
-          <h2>Expériences professionnelles</h2>
+        <section
+          id="exp"
+          ref={sectionsRefs.exp}
+          style={sectionStyle('exp')}
+          aria-labelledby="exp-title"
+        >
+          <h2 id="exp-title">Expériences professionnelles</h2>
           <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
             {experiences.map((exp, i) => (
               <li
@@ -176,6 +185,8 @@ const CV: React.FC = () => {
                 tabIndex={0}
                 onFocus={handleItemHover}
                 onBlur={handleItemLeave}
+                role="group"
+                aria-label={`${exp.year} – ${exp.role} chez ${exp.company}`}
               >
                 <div>
                   🌸 <strong>{exp.year}</strong> – {exp.role}, {exp.company}{' '}
@@ -195,8 +206,13 @@ const CV: React.FC = () => {
           </ul>
         </section>
 
-        <section id="formation" ref={sectionsRefs.formation} style={sectionStyle('formation')}>
-          <h2>Formations</h2>
+        <section
+          id="formation"
+          ref={sectionsRefs.formation}
+          style={sectionStyle('formation')}
+          aria-labelledby="formation-title"
+        >
+          <h2 id="formation-title">Formations</h2>
           <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
             {formations.map((form, i) => (
               <li
@@ -205,6 +221,8 @@ const CV: React.FC = () => {
                 onMouseEnter={handleItemHover}
                 onMouseLeave={handleItemLeave}
                 tabIndex={0}
+                role="group"
+                aria-label={`${form.year} – ${form.title} à ${form.school}`}
               >
                 <div>
                   🌸 <strong>{form.year}</strong> – {form.title}
