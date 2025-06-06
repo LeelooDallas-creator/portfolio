@@ -163,7 +163,11 @@ const CV: React.FC = () => {
           style={{ fontSize: isMobile ? '1rem' : '1.1rem', color: 'var(--text-main)' }}
           aria-describedby="cv-title"
         >
-          Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d’un Master d’Humanités Numériques.
+        Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d'un Master 
+        d’Humanités Numériques. Après avoir achevé un Master en Littérature Générale et Comparée, j’ai décidé 
+        de me réorienter vers le développement web avec 3W Academy. Aujourd’hui, je souhaite mettre mes 
+        compétences au service d’un projet stimulant, avec l’objectif à terme de travailler dans 
+        l’aéronautique, un domaine qui me passionne depuis l’obtention de mon BIA au lycée.
         </p>
 
         <FlowerBorder />
