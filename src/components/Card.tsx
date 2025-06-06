@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export interface CardProps {
@@ -11,9 +11,15 @@ const Card: React.FC<CardProps> = ({ title, children, href }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <Link to={href} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Link
+      to={href}
+      style={{ textDecoration: 'none', color: 'inherit' }}
+      aria-label={`Naviguer vers ${title}`}
+    >
       <div
-      data-testid="card-mock"
+        data-testid="card-mock"
+        role="group"
+        aria-labelledby={`card-title-${title}`}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
@@ -32,6 +38,7 @@ const Card: React.FC<CardProps> = ({ title, children, href }) => {
         }}
       >
         <h2
+          id={`card-title-${title}`}
           style={{
             fontFamily: 'var(--font-title)',
             fontSize: '1.8rem',

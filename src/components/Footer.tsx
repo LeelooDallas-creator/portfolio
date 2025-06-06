@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FlowerIcon: React.FC = () => (
   <svg
     viewBox="0 0 200 200"
@@ -35,7 +33,9 @@ const FlowerIcon: React.FC = () => (
 );
 
 const Footer: React.FC = () => (
-  <footer className="footer" style={{ textAlign: 'center', color: '#5a2e99' }}>
+  <footer className="footer" role="contentinfo"
+    aria-label="Pied de page"
+    style={{ textAlign: 'center', color: '#5a2e99' }}>
     <div
       style={{
         display: 'flex',

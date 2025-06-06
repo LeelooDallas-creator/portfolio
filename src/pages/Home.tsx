@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import Card from '../components/Card';
 import FlowerBorder from '../components/FlowerBorder';
@@ -18,6 +18,7 @@ const Home: React.FC = () => {
 
   return (
     <main
+      aria-labelledby="home-main-title"
       style={{
         maxWidth: isMobile ? '95%' : '1000px',
         margin: '0 auto',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.Lise_Barbey.png';
 
@@ -46,6 +46,8 @@ const Header: React.FC = () => {
         flexWrap: 'wrap',
         borderBottom: '1px solid #eee',
       }}
+      role="banner"
+      aria-label="En-tête du site"
     >
       {/* Logo + Nom */}
       <Link
@@ -56,6 +58,7 @@ const Header: React.FC = () => {
           textDecoration: 'none',
           color: 'inherit',
         }}
+        aria-label="Retour à l’accueil"
       >
         <img
           src={logo}
@@ -95,6 +98,8 @@ const Header: React.FC = () => {
           color: '#5a2e99',
         }}
         className="burger-menu"
+        aria-expanded={menuOpen}
+        aria-controls="nav-mobile"
       >
         ☰
       </button>
