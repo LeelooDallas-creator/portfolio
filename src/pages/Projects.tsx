@@ -26,7 +26,7 @@ const projects: Project[] = [
   {
     title: "Horizon Slavia",
     description: "Une agence fictive de voyages mystérieux imaginée par Lena Berthelin-Sannier.",
-    link: '',
+    link: 'https://horizon-slavia.netlify.app/',
   },
   {
     title: "Ameteo",
