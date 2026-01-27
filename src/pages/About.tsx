@@ -103,52 +103,62 @@ const About: React.FC = () => {
           </h1>
 
           <p style={paragraphStyle}>
-            Je suis Lise Barbey, développeuse fullstack passionnée de web, de science-fiction et d'aéronautique.<br />
-            Mon parcours m’a menée des lettres modernes jusqu’à l’informatique, avec une spécialisation en Humanités
+            Je suis Lise Barbey, développeuse fullstack passionnée d'aéronautique.<br />
+            Mon parcours m'a menée des lettres modernes jusqu'à l'informatique, avec une spécialisation en Humanités
             Numériques et développement web.<br /><br />
-            Je suis persévérante, curieuse et créative. J’aime construire des projets qui ont du sens, visuellement
-            élégants et techniquement solides. Je travaille actuellement en alternance chez Studio Web Crafters, à
-            Saint-Malo.
+            Persévérante, curieuse et créative, j'aime construire des solutions qui ont du sens, techniquement solides
+            et pensées pour durer. Je m'oriente aujourd'hui vers le Product Lifecycle Management (PLM) et les métiers
+            de Technical Consultant / Application Engineer, où mes compétences fullstack rencontrent les enjeux
+            de gestion du cycle de vie produit.
           </p>
 
           {/* Accordion Sections */}
           <AccordionSection title="❧ Mon parcours & sensibilité">
             <p style={paragraphStyle}>
-              Je suis développeuse fullstack, avec une préférence marquée pour le back-end, où j’aime concevoir des architectures
-              à la fois solides et élégantes. Passionnée depuis toujours par l’architecture et les arts
-              sous toutes leurs formes, j’intègre cette sensibilité à mon travail pour créer des systèmes fonctionnels,
-              esthétiques et bien structurés. La qualité du code et la résolution précise des problématiques techniques
-              sont au cœur de ma démarche.
+              Développeuse fullstack avec une affinité marquée pour le back-end, j'aime concevoir des architectures
+              à la fois solides et élégantes. Passionnée depuis toujours par l'architecture et les arts
+              sous toutes leurs formes, j'intègre cette sensibilité à mon travail pour créer des systèmes fonctionnels
+              et bien structurés. C'est cette même rigueur qui me pousse vers des environnements où la structuration
+              de l'information et la fiabilité des données sont essentielles.
             </p>
           </AccordionSection>
 
           <AccordionSection title="❧ Compétences & outils">
             <p style={paragraphStyle}>
-              Aujourd’hui, je travaille en fullstack, ce qui me permet de suivre un projet de A à Z, de la conception à
-              la mise en production. Je maîtrise principalement JavaScript, Astro et React, et je viens de commencer un
-              projet en Node.js. Dans le cadre de ma formation, je découvre également PHP ainsi que les bases de
-              données, renforçant ainsi mes compétences back-end. En parallèle, je continue à me former sur divers
-              sujets techniques, avec pour objectif d’apprendre prochainement le Perl, un langage qui m’intéresse
-              particulièrement.
+              Mon socle technique couvre JavaScript, TypeScript, React, Node.js, PHP et SQL, avec des outils
+              comme Drizzle ORM et Neon pour la gestion de données. Je pratique les tests automatisés, le CI/CD,
+              l'intégration d'API REST et l'automatisation de workflows (n8n). J'élargis actuellement mon
+              périmètre vers C++, Java et l'infrastructure cloud (Terraform, AWS).
+            </p>
+            <p style={paragraphStyle}>
+              Au-delà du code, je m'appuie sur des méthodes agiles (Scrum, backlogs via Linear, Notion, Trello)
+              et sur une solide capacité de rédaction technique héritée de mon parcours en lettres. La modélisation
+              de données (MCD/MLD) et l'accessibilité (WCAG, RGAA) complètent mon profil. Je parle anglais
+              couramment, russe (LV1 scolaire), et j'apprends l'espagnol.
             </p>
           </AccordionSection>
 
           <AccordionSection title="❧ Accessibilité & inclusion">
             <p style={paragraphStyle}>
-              L’accessibilité est une valeur essentielle pour moi : je m’efforce de concevoir des sites et applications
-              inclusifs, pensés pour être accessibles et utilisables par tous, quelles que soient leurs contraintes.
+              L'accessibilité est une valeur essentielle pour moi : je m'efforce de concevoir des sites et applications
+              inclusifs, utilisables par tous quelles que soient leurs contraintes. Concrètement, je travaille avec
+              du HTML sémantique, des attributs ARIA, et je teste mes interfaces avec Lighthouse et axe. Je suis
+              attentive au contraste, à la navigation clavier et à la compatibilité avec les lecteurs d'écran.
             </p>
           </AccordionSection>
 
           <AccordionSection title="❧ Approche & vision">
             <p style={paragraphStyle}>
-              Comprendre les besoins réels des utilisateurs pour créer des solutions durables, alliant rigueur
-              technique, esthétique et accessibilité, est au centre de mon travail.
+              Comprendre les besoins réels des utilisateurs pour concevoir des solutions durables, alliant rigueur
+              technique et accessibilité, est au centre de ma démarche. Je suis particulièrement attirée par les
+              environnements où l'on gère nomenclatures (BOM), configurations produit et processus de change
+              management, en lien étroit avec les équipes métiers – ingénierie, qualité, production.
             </p>
             <p style={paragraphStyle}>
-              Curieuse et toujours en apprentissage, j’apprécie expérimenter de nouvelles approches et collaborer avec
-              des équipes passionnées. Ce portfolio reflète mes projets, mes réussites, mais aussi les défis qui ont
-              nourri mon expérience et affiné ma vision du développement.
+              Curieuse et toujours en apprentissage, j'apprécie expérimenter de nouvelles approches et collaborer avec
+              des équipes pluridisciplinaires. Ce portfolio reflète mes projets, mes réussites, mais aussi les défis
+              qui ont nourri mon expérience et orienté ma vision vers le consulting technique et l'ingénierie
+              applicative.
             </p>
           </AccordionSection>
         </section>

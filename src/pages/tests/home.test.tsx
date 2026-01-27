@@ -27,6 +27,6 @@ describe('Home', () => {
     expect(screen.getByTestId('hero')).toBeInTheDocument();
     const cards = screen.getAllByTestId('card-mock');
     expect(cards.length).toBeGreaterThan(0);
-    expect(screen.getByText(/Recherche un poste en back-end/i)).toBeInTheDocument();
+    expect(screen.getByText(/Développeuse fullstack en transition vers le PLM/i)).toBeInTheDocument();
   });
 });

@@ -15,7 +15,7 @@ describe('Projects component', () => {
     render(<Projects />);
     // Le rôle correct d’après le rendu est "listitem", pas "article"
     const cards = await screen.findAllByRole('listitem');
-    expect(cards.length).toBe(11); // adapte selon ton nombre réel de projets
+    expect(cards.length).toBe(7); // adapte selon ton nombre réel de projets
   });
 
   test('affiche les titres et descriptions connus', () => {

@@ -9,6 +9,12 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: 'BOM Manager – Nomenclature aéronautique',
+    description:
+      "Gestionnaire de nomenclature produit (BOM) pour un drone : arborescence de pièces, gestion de révisions, traçabilité des modifications et cycle de vie. Projet en cours.",
+    link: '',
+  },
+  {
     title: 'Portfolio personnel',
     description: 'Ce site même ! Conçu pour refléter mon univers graphique avec React et amour.',
     link: 'https://portfolio-leeloo-dallas.netlify.app',

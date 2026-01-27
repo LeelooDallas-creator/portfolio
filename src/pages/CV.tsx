@@ -7,6 +7,7 @@ const CV: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const sectionsRefs = {
+    competences: useRef<HTMLElement>(null),
     exp: useRef<HTMLElement>(null),
     formation: useRef<HTMLElement>(null),
     contact: useRef<HTMLElement>(null),
@@ -157,20 +158,65 @@ const CV: React.FC = () => {
           }}
           id="cv-title"
         >
-          Lise BARBEY – Développeuse Fullstack
+          Lise BARBEY – Développeuse Fullstack | Orientation PLM
         </h1>
         <p
           style={{ fontSize: isMobile ? '1rem' : '1.1rem', color: 'var(--text-main)' }}
           aria-describedby="cv-title"
         >
-        Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d'un Master 
-        d’Humanités Numériques. Après avoir achevé un Master en Littérature Générale et Comparée, j’ai décidé 
-        de me réorienter vers le développement web avec 3W Academy. Aujourd’hui, je souhaite mettre mes 
-        compétences au service d’un projet stimulant, avec l’objectif à terme de travailler dans 
-        l’aéronautique, un domaine qui me passionne depuis l’obtention de mon BIA au lycée.
+        Passionnée d'informatique, j'ai découvert le développement grâce à un ami et confirmé cet intérêt lors d'un Master
+        d'Humanités Numériques. Après un Master en Littérature Générale et Comparée, j'ai choisi de me réorienter
+        vers le développement web avec 3W Academy. Aujourd'hui, je m'oriente vers le Product Lifecycle Management
+        (PLM), avec l'ambition de rejoindre un poste de Technical Consultant ou Application Engineer,
+        idéalement dans l'aéronautique, un domaine qui me passionne depuis l'obtention de mon BIA au lycée.
         </p>
 
         <FlowerBorder />
+
+        <section
+          id="competences"
+          ref={sectionsRefs.competences}
+          style={sectionStyle('competences')}
+          aria-labelledby="competences-title"
+        >
+          <h2 id="competences-title">Compétences</h2>
+          <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+            {[
+              { category: 'Langages', detail: 'JavaScript, TypeScript, PHP, SQL, HTML, CSS, C++ et Java (en apprentissage)' },
+              { category: 'Frameworks & librairies', detail: 'React, React Router, Node.js, Astro, Vite, Drizzle ORM' },
+              { category: 'Outils & environnement', detail: 'Git, Docker, Neon (Postgres serverless), API REST, webhooks, n8n, Terraform et AWS (en apprentissage)' },
+              { category: 'Tests & CI/CD', detail: 'Vitest, Testing Library, GitLab CI, GitHub Actions, déploiement automatisé' },
+              { category: 'Gestion de projet', detail: 'Trello, Notion, Linear, GitLab/GitHub Issues – méthodes agiles (Scrum)' },
+              { category: 'Documentation & modélisation', detail: 'Rédaction technique, spécifications fonctionnelles, cahiers des charges, MCD/MLD' },
+              { category: 'Orientation PLM', detail: 'Modélisation de données, structuration d\'information produit, gestion de versions – sensibilité aux enjeux de cycle de vie, nomenclatures et configurations' },
+              { category: 'Accessibilité', detail: 'WCAG, RGAA – conception inclusive et tests d\'accessibilité' },
+              { category: 'Langues', detail: 'Anglais (courant), Russe (LV1 scolaire), Espagnol (en apprentissage), LSF (notions)' },
+            ].map((item, i) => (
+              <li
+                key={i}
+                style={listItemStyle}
+                onMouseEnter={handleItemHover}
+                onMouseLeave={handleItemLeave}
+                tabIndex={0}
+                onFocus={handleItemHover}
+                onBlur={handleItemLeave}
+              >
+                <div>
+                  🌸 <strong>{item.category}</strong>
+                </div>
+                <p
+                  style={{
+                    marginTop: '0.4rem',
+                    color: 'var(--text-main)',
+                    fontSize: isMobile ? '0.9rem' : '0.95rem',
+                  }}
+                >
+                  {item.detail}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section
           id="exp"

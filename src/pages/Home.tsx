@@ -36,16 +36,16 @@ const Home: React.FC = () => {
         }}
       >
         <Card title="À propos de moi" href="/about">
-          Passionnée par le développement web, j'aime créer des interfaces élégantes et intuitives
-          avec un style doux, accessible et moderne.
+          Développeuse fullstack en transition vers le PLM, je conçois des solutions techniques
+          pensées pour durer, accessibles et orientées métier.
         </Card>
         <Card title="Mes projets" href="/projects">
-          Consultez mes dernières réalisations web, allant de la classique to do list aux applications 
+          Consultez mes dernières réalisations, allant de la classique to do list aux applications
           plus complexes.
         </Card>
         <Card title="Mon Parcours" href="/cv">
           Découvrez mon cheminement professionnel et académique, de mes études en littérature à ma
-          reconversion passionnée dans le développement web.
+          reconversion vers le développement et le consulting technique.
         </Card>
       </div>
     </main>

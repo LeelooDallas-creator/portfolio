@@ -4,7 +4,7 @@ import CV from '../CV';
 describe('CV component', () => {
   it('affiche le titre principal', () => {
     render(<CV />);
-    expect(screen.getByText(/Lise BARBEY – Développeuse Fullstack/i)).toBeInTheDocument();
+    expect(screen.getByText(/Lise BARBEY – Développeuse Fullstack \| Orientation PLM/i)).toBeInTheDocument();
   });
 
   it('affiche la section expériences', () => {

@@ -20,12 +20,12 @@ describe('AccordionSection', () => {
     // Clique pour ouvrir
     fireEvent.click(firstAccordionTitle);
     expect(firstAccordionTitle).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByText(/Je suis développeuse fullstack/)).toBeInTheDocument();
+    expect(screen.getByText(/Développeuse fullstack avec une affinité marquée/)).toBeInTheDocument();
 
     // Clique pour fermer
     fireEvent.click(firstAccordionTitle);
     expect(firstAccordionTitle).toHaveAttribute('aria-expanded', 'false');
-    expect(screen.queryByText(/Je suis développeuse fullstack/)).toBeInTheDocument();
+    expect(screen.queryByText(/Développeuse fullstack avec une affinité marquée/)).toBeInTheDocument();
   }); // <-- fermeture test ouvre et ferme
 }); // <-- fermeture describe AccordionSection
 

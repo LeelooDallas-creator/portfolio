@@ -97,7 +97,8 @@ const FlowerBorder = () => {
       <div className="flower-line top">{flowers}</div>
 
       <div className="flower-content">
-        Recherche un poste en back-end ou en fullstack pour janvier 2026
+        Développeuse fullstack | Orientation PLM – Technical Consultant /
+        Application Engineer{" "}
       </div>
 
       <div className="flower-line bottom">{flowers}</div>
