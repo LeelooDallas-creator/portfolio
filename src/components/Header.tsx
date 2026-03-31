@@ -1,150 +1,168 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.Lise_Barbey.png';
-
-const FlowerIcon: React.FC = () => (
-  <svg
-    viewBox="0 0 200 200"
-    width="28"
-    height="28"
-    xmlns="http://www.w3.org/2000/svg"
-    style={{ margin: '0.3rem auto' }}
-    className="rotating-flower"
-  >
-    <defs>
-      <radialGradient id="petalGradient" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stopColor="#fbd6e3" />
-        <stop offset="100%" stopColor="#c18fff" />
-      </radialGradient>
-    </defs>
-    {[...Array(6)].map((_, i) => (
-      <ellipse
-        key={i}
-        cx="100"
-        cy="65"
-        rx="22"
-        ry="35"
-        fill="url(#petalGradient)"
-        transform={`rotate(${i * 60}, 100, 100)`}
-      />
-    ))}
-    <circle cx="100" cy="100" r="20" fill="#5a2e99" />
-  </svg>
-);
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { to: '/about',    label: 'À propos' },
+    { to: '/projects', label: 'Projets'  },
+    { to: '/cv',       label: 'CV'       },
+  ];
 
   return (
-    <header
-      className="header"
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem',
-        flexWrap: 'wrap',
-        borderBottom: '1px solid #eee',
-      }}
-      role="banner"
-      aria-label="En-tête du site"
-    >
-      {/* Logo + Nom */}
-      <Link
-        to="/"
+    <header>
+      <div
         style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 2rem',
+          height: '64px',
           display: 'flex',
           alignItems: 'center',
-          textDecoration: 'none',
-          color: 'inherit',
+          justifyContent: 'space-between',
         }}
-        aria-label="Retour à l’accueil"
       >
-        <img
-          src={logo}
-          alt="Logo Lise Barbey"
-          style={{ height: '100px', width: 'auto', marginRight: '1rem' }}
-        />
-        <div
+        {/* Logo */}
+        <Link
+          to="/"
+          style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}
+          aria-label="Retour à l'accueil"
+        >
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="3.5" fill="#c084fc"/>
+            <circle cx="14" cy="14" r="10" stroke="#7c3aed" strokeWidth="1" fill="none" opacity="0.5"/>
+            <circle cx="14" cy="14" r="6" stroke="#a855f7" strokeWidth="0.75" fill="none" strokeDasharray="2 2"/>
+            <circle cx="22" cy="8" r="1.5" fill="#ec4899"/>
+          </svg>
+          <span
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.9rem',
+              fontWeight: 900,
+              letterSpacing: '0.08em',
+              color: 'var(--text-primary)',
+              lineHeight: 1,
+            }}
+          >
+            LISE{' '}
+            <span style={{ color: 'var(--violet-bright)' }}>BARBEY</span>
+          </span>
+        </Link>
+
+        {/* Desktop nav */}
+        <nav
+          className="nav-desktop"
+          style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+          aria-label="Navigation principale"
+        >
+          {navLinks.map(({ to, label }) => {
+            const isActive = location.pathname === to;
+            return (
+              <Link
+                key={to}
+                to={to}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: isActive ? 'var(--violet-bright)' : 'var(--text-secondary)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: 'var(--radius-sm)',
+                  background: isActive ? 'rgba(192,132,252,0.1)' : 'transparent',
+                  border: isActive ? '1px solid var(--border-subtle)' : '1px solid transparent',
+                  transition: 'all 0.2s ease',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={e => {
+                  if (!isActive) {
+                    (e.currentTarget as HTMLElement).style.color = 'var(--text-primary)';
+                    (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isActive) {
+                    (e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)';
+                    (e.currentTarget as HTMLElement).style.background = 'transparent';
+                  }
+                }}
+              >
+                {label}
+              </Link>
+            );
+          })}
+          <a
+            href="mailto:barbeylise@gmail.com"
+            className="btn-primary"
+            style={{ marginLeft: '1rem', textDecoration: 'none' }}
+          >
+            Contact
+          </a>
+        </nav>
+
+        {/* Burger */}
+        <button
+          className="burger-menu"
+          aria-label="Menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            lineHeight: 1.2,
-            color: '#5a2e99',
+            display: 'none',
+            background: 'none',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 'var(--radius-sm)',
+            color: 'var(--violet-bright)',
+            padding: '0.4rem 0.65rem',
+            fontSize: '1.1rem',
+            cursor: 'pointer',
           }}
         >
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.1rem' }}>Lise</p>
-            <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.1rem' }}>Barbey</p>
-          </div>
-          <FlowerIcon />
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
-            <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.1rem' }}>Leeloo</p>
-            <p style={{ margin: 0, fontWeight: 'bold', fontSize: '1.1rem' }}>Dallas</p>
-          </div>
-        </div>
-      </Link>
+          {menuOpen ? '✕' : '☰'}
+        </button>
+      </div>
 
-      {/* Bouton burger (visible en mobile) */}
-      <button
-        aria-label="Menu"
-        onClick={() => setMenuOpen(!menuOpen)}
-        style={{
-          background: 'none',
-          border: 'none',
-          fontSize: '1.8rem',
-          display: 'none',
-          color: '#5a2e99',
-        }}
-        className="burger-menu"
-        aria-expanded={menuOpen}
-        aria-controls="nav-mobile"
-      >
-        ☰
-      </button>
+      {/* Mobile menu */}
+      {menuOpen && (
+        <nav
+          id="nav-mobile"
+          style={{
+            borderTop: '1px solid var(--border-subtle)',
+            padding: '1rem 2rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.5rem',
+            background: 'rgba(10,8,20,0.97)',
+          }}
+        >
+          {navLinks.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '0.75rem',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--text-primary)',
+                padding: '0.75rem 0',
+                borderBottom: '1px solid var(--border-subtle)',
+                textDecoration: 'none',
+              }}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+      )}
 
-      {/* Navigation */}
-      <nav
-        style={{
-          display: menuOpen ? 'flex' : 'none',
-          flexDirection: 'column',
-          width: '100%',
-          marginTop: '1rem',
-          gap: '0.8rem',
-        }}
-        className="nav-links"
-      >
-        <Link to="/about" style={{ color: '#5a2e99' }}>À propos</Link>
-        <Link to="/projects" style={{ color: '#5a2e99' }}>Projets</Link>
-        <Link to="/cv" style={{ color: '#5a2e99' }}>CV</Link>
-      </nav>
-
-      {/* Desktop nav (visible en large) */}
-      <nav
-        style={{
-          display: 'flex',
-          gap: '1rem',
-        }}
-        className="nav-desktop"
-      >
-        <Link to="/about">À propos</Link>
-        <Link to="/projects">Projets</Link>
-        <Link to="/cv">CV</Link>
-      </nav>
-
-      {/* Responsive CSS (injecté ici) */}
       <style>{`
         @media (max-width: 768px) {
-          .nav-desktop {
-            display: none !important;
-          }
-          .burger-menu {
-            display: block !important;
-          }
-          .nav-links {
-            display: ${menuOpen ? 'flex' : 'none'};
-          }
+          .nav-desktop { display: none !important; }
+          .burger-menu { display: block !important; }
         }
       `}</style>
     </header>
