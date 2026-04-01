@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ContactAside from '../components/ContactAside';
-import LisePhoto from '../assets/Lise_Barbey.PNG';
+import LisePhoto from '../assets/Lise_Barbey.png';
 
 type AccordionSectionProps = {
   title: string;
