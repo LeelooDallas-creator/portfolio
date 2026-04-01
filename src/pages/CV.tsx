@@ -80,7 +80,7 @@ const CV: React.FC = () => {
     {
       year: '2024',
       title: 'Formation Développeuse fullstack',
-      detail: 'HTML, CSS, JS, PHP, SQL, React, Node.js',
+      detail: 'HTML, CSS, JS, SQL, React, Node.js',
       school: '3W Academy · Télé-présentiel',
     },
     {
@@ -110,7 +110,7 @@ const CV: React.FC = () => {
   ];
 
   const skills = [
-    { category: 'Langages',                 detail: 'JavaScript · TypeScript · PHP · SQL · HTML · CSS · C++ · Java (apprentissage)' },
+    { category: 'Langages',                 detail: 'JavaScript · TypeScript · SQL · HTML · CSS · C++ (apprentissage) · Java (apprentissage) · Python (apprentissage) · Perl (apprentissage)' },
     { category: 'Frameworks & librairies',  detail: 'React · React Router · Node.js · Astro · Vite · Drizzle ORM' },
     { category: 'Outils & environnement',   detail: 'Git · Docker · Neon (Postgres serverless) · API REST · webhooks · n8n · Terraform · AWS (apprentissage)' },
     { category: 'Tests & CI/CD',            detail: 'Vitest · Testing Library · GitLab CI · GitHub Actions · déploiement automatisé' },
@@ -118,7 +118,7 @@ const CV: React.FC = () => {
     { category: 'Documentation',            detail: "Rédaction technique · spécifications fonctionnelles · cahiers des charges · MCD/MLD" },
     { category: 'Orientation PLM',          detail: "Modélisation de données · structuration d'information produit · gestion de versions · BOM · cycle de vie" },
     { category: 'Accessibilité',            detail: "WCAG · RGAA · conception inclusive et tests d'accessibilité" },
-    { category: 'Langues',                  detail: 'Anglais (courant) · Russe (LV1) · Espagnol (apprentissage) · LSF (notions)' },
+    { category: 'Langues',                  detail: 'Anglais (B2) · Russe (B1) · Polonais (A1) · Espagnol (notions) · LSF (notions)' },
   ];
 
   return (

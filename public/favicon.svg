@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond sombre -->
+  <rect width="32" height="32" rx="6" fill="#0a0814"/>
+  <!-- Anneau extérieur -->
+  <circle cx="16" cy="16" r="12" stroke="rgba(124,58,237,0.6)" stroke-width="0.75" fill="none"/>
+  <!-- Anneau intermédiaire pointillé -->
+  <circle cx="16" cy="16" r="8" stroke="rgba(168,85,247,0.7)" stroke-width="0.75" fill="none" stroke-dasharray="2 2"/>
+  <!-- Anneau intérieur -->
+  <circle cx="16" cy="16" r="4.5" stroke="rgba(192,132,252,0.8)" stroke-width="1" fill="none"/>
+  <!-- Noyau -->
+  <circle cx="16" cy="16" r="2.5" fill="#a855f7"/>
+  <circle cx="16" cy="16" r="1.5" fill="#c084fc"/>
+  <!-- Point orbite rose -->
+  <circle cx="16" cy="4" r="1.8" fill="#ec4899"/>
+  <!-- Point orbite violet clair -->
+  <circle cx="27" cy="21" r="1.4" fill="#c084fc"/>
+</svg>
