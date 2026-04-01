@@ -158,10 +158,10 @@ const About: React.FC = () => {
 
             <AccordionSection title="Compétences & outils" isOpen={openSection === 'Compétences & outils'} onToggle={() => toggle('Compétences & outils')}>
               <p style={bodyStyle}>
-                Mon socle technique couvre <strong>JavaScript, TypeScript, React, Node.js, PHP et SQL</strong>,
+                Mon socle technique couvre <strong>JavaScript, TypeScript, React, Node.js et SQL</strong>,
                 avec des outils comme Drizzle ORM et Neon pour la gestion de données. Je pratique
                 les tests automatisés, le CI/CD, l'intégration d'API REST et l'automatisation de
-                workflows (n8n). J'élargis mon périmètre vers C++, Java et le cloud (Terraform, AWS).
+                workflows (n8n). J'élargis mon périmètre vers C++, Java, Python et Perl (en apprentissage) ainsi que le cloud (Terraform, AWS).
               </p>
               <p style={{ ...bodyStyle, marginTop: '0.75rem' }}>
                 Au-delà du code, méthodes agiles (Scrum, Linear, Notion, Trello), rédaction technique,
