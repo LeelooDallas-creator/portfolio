@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import ContactAside from '../components/ContactAside';
+import LisePhoto from '../assets/Lise_Barbey.PNG';
 
 type AccordionSectionProps = {
   title: string;
+  isOpen: boolean;
+  onToggle: () => void;
   children: React.ReactNode;
 };
 
-const AccordionSection: React.FC<AccordionSectionProps> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AccordionSection: React.FC<AccordionSectionProps> = ({ title, isOpen, onToggle, children }) => {
   const sectionId = title.replace(/\s+/g, '-').toLowerCase();
 
   return (
@@ -15,7 +17,7 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({ title, children }) 
       <h2 style={{ margin: 0 }}>
         <button
           className="accordion-btn"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={onToggle}
           aria-expanded={isOpen}
           aria-controls={`section-${sectionId}`}
         >
@@ -35,7 +37,11 @@ const AccordionSection: React.FC<AccordionSectionProps> = ({ title, children }) 
 };
 
 const About: React.FC = () => {
+  const [openSection, setOpenSection] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const toggle = (title: string) =>
+    setOpenSection(prev => (prev === title ? null : title));
 
   useEffect(() => {
     const handle = () => setIsMobile(window.innerWidth < 768);
@@ -65,6 +71,9 @@ const About: React.FC = () => {
         @media (max-width: 960px) {
           .about-layout { flex-direction: column; }
         }
+        @media (max-width: 600px) {
+          .intro-panel { flex-direction: column !important; align-items: center !important; text-align: center; }
+        }
       `}</style>
 
       <div className="about-layout">
@@ -86,6 +95,7 @@ const About: React.FC = () => {
 
           {/* Intro panel */}
           <div
+            className="intro-panel"
             style={{
               background: 'rgba(255,255,255,0.02)',
               border: '1px solid var(--border-subtle)',
@@ -93,20 +103,39 @@ const About: React.FC = () => {
               borderRadius: 'var(--radius-lg)',
               padding: '2rem',
               marginBottom: '2rem',
+              display: 'flex',
+              gap: '2rem',
+              alignItems: 'center',
             }}
             aria-labelledby="about-title"
           >
-            <p style={bodyStyle}>
-              Je suis <strong>Lise Barbey</strong>, développeuse fullstack passionnée d'aéronautique.
-              Mon parcours m'a menée des lettres modernes jusqu'à l'informatique, avec une spécialisation
-              en Humanités Numériques et développement web.
-            </p>
-            <p style={{ ...bodyStyle, marginTop: '1rem' }}>
-              Persévérante, curieuse et créative, j'aime construire des solutions qui ont du sens,
-              techniquement solides et pensées pour durer. Je m'oriente vers le{' '}
-              <strong>Product Lifecycle Management (PLM)</strong> et les métiers de{' '}
-              <strong>Technical Consultant / Application Engineer</strong>.
-            </p>
+            <img
+              src={LisePhoto}
+              alt="Portrait de Lise Barbey"
+              style={{
+                width: '140px',
+                height: '140px',
+                objectFit: 'cover',
+                objectPosition: 'top',
+                borderRadius: '50%',
+                border: '2px solid var(--border-mid)',
+                flexShrink: 0,
+                boxShadow: '0 0 24px rgba(168,85,247,0.25)',
+              }}
+            />
+            <div>
+              <p style={bodyStyle}>
+                Je suis <strong>Lise Barbey</strong>, développeuse fullstack passionnée d'aéronautique.
+                Mon parcours m'a menée des lettres modernes jusqu'à l'informatique, avec une spécialisation
+                en Humanités Numériques et développement web.
+              </p>
+              <p style={{ ...bodyStyle, marginTop: '1rem' }}>
+                Persévérante, curieuse et créative, j'aime construire des solutions qui ont du sens,
+                techniquement solides et pensées pour durer. Je m'oriente vers le{' '}
+                <strong>Product Lifecycle Management (PLM)</strong> et les métiers de{' '}
+                <strong>Technical Consultant / Application Engineer</strong>.
+              </p>
+            </div>
           </div>
 
           {/* Accordions */}
@@ -118,7 +147,7 @@ const About: React.FC = () => {
               padding: '0 2rem',
             }}
           >
-            <AccordionSection title="Parcours & sensibilité">
+            <AccordionSection title="Parcours & sensibilité" isOpen={openSection === 'Parcours & sensibilité'} onToggle={() => toggle('Parcours & sensibilité')}>
               <p style={bodyStyle}>
                 Développeuse fullstack avec une affinité marquée pour le back-end, j'aime concevoir
                 des architectures à la fois solides et élégantes. Passionnée depuis toujours par
@@ -127,7 +156,7 @@ const About: React.FC = () => {
               </p>
             </AccordionSection>
 
-            <AccordionSection title="Compétences & outils">
+            <AccordionSection title="Compétences & outils" isOpen={openSection === 'Compétences & outils'} onToggle={() => toggle('Compétences & outils')}>
               <p style={bodyStyle}>
                 Mon socle technique couvre <strong>JavaScript, TypeScript, React, Node.js, PHP et SQL</strong>,
                 avec des outils comme Drizzle ORM et Neon pour la gestion de données. Je pratique
@@ -140,7 +169,7 @@ const About: React.FC = () => {
               </p>
             </AccordionSection>
 
-            <AccordionSection title="Accessibilité & inclusion">
+            <AccordionSection title="Accessibilité & inclusion" isOpen={openSection === 'Accessibilité & inclusion'} onToggle={() => toggle('Accessibilité & inclusion')}>
               <p style={bodyStyle}>
                 L'accessibilité est une valeur essentielle : HTML sémantique, attributs ARIA, tests
                 Lighthouse et axe. Attention portée au contraste, à la navigation clavier et à la
@@ -148,7 +177,7 @@ const About: React.FC = () => {
               </p>
             </AccordionSection>
 
-            <AccordionSection title="Approche & vision">
+            <AccordionSection title="Approche & vision" isOpen={openSection === 'Approche & vision'} onToggle={() => toggle('Approche & vision')}>
               <p style={bodyStyle}>
                 Comprendre les besoins réels des utilisateurs pour concevoir des solutions durables —
                 rigueur technique et accessibilité au service des équipes métier. Je suis attirée
