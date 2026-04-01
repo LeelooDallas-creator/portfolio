@@ -97,7 +97,7 @@ const CV: React.FC = () => {
     },
     {
       year: '2019–2022',
-      title: 'Licence Lettres Modernes – Bibliothèques & Édition',
+      title: 'Licence Lettres Modernes – Bibliothèque & Édition',
       detail: 'HTML, CSS, Canva',
       school: 'Université Rennes 2',
     },
@@ -178,9 +178,9 @@ const CV: React.FC = () => {
               }}
               aria-describedby="cv-title"
             >
-              Passionnée d'informatique, confirmé lors d'un Master d'Humanités Numériques.
+              Attirée par l'informatique dès le lycée, j'ai confirmé cette voie lors d'un Master d'Humanités Numériques.
               Je m'oriente vers le PLM et les postes de Technical Consultant / Application Engineer,
-              idéalement dans l'aéronautique — domaine qui me passionne depuis mon BIA au lycée.
+              idéalement dans l'aéronautique — domaine que je suis depuis mon BIA.
             </p>
           </div>
 
