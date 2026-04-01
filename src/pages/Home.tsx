@@ -302,10 +302,10 @@ const Home: React.FC = () => {
             gap: '1rem',
           }}
         >
-          <Stat value="7+"  label="Projets livrés"     delay={100} />
-          <Stat value="2+"  label="Ans d'expérience"   delay={150} />
+          <Stat value="7+"  label="Projets en prod"     delay={100} />
+          <Stat value="1"   label="An d'expérience"    delay={150} />
           <Stat value="BIA" label="Brevet Aéro."       delay={200} />
-          <Stat value="3"   label="Langues"            delay={250} />
+          <Stat value="5"   label="Langues"            delay={250} />
           <Stat value="PLM" label="Orientation cible"  delay={300} />
         </div>
       </section>
